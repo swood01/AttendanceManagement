@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Attendance Management | Events</title>
 
     <!-- JQuery Core Library -->
     <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>       
