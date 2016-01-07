@@ -9,9 +9,7 @@
     <title></title>
 
     <!-- JQuery Core Library -->
-    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
-
-   
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>  
 
     <!-- Bootstrap theme Library-->
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>      
@@ -19,10 +17,9 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/custom.css" />       
-
     <link rel='stylesheet' href='Content/fullcalendar.css' />
-    <!--<script src='lib/jquery.min.js'></script>-->
-    <script src='lib/moment.min.js'></script>
+   
+    <script src='Scripts/moment.min.js'></script>
     <script src='Scripts/fullcalendar/fullcalendar.js'></script>
     <script src='Scripts/calendar.js'></script>
 
