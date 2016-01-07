@@ -59,7 +59,7 @@ namespace AttendanceManagement.handlers
                         sb.AppendLine("<div class=\"col-md-2\">");
                         sb.AppendLine("<span id=\"btnimg\">");
                         //<img class="featurette-image img-responsive center-block event-image" alt="<%# DataBinder.Eval(Container.DataItem, "vcFirstname")%> <%# DataBinder.Eval(Container.DataItem, "vcSurname")%> Image" src="<%# DataBinder.Eval(Container.DataItem, "ImagePath")%>">
-                        sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + "\" " + row["vcSurname"].ToString() + "\" Image\" src=\"" + row["ImagePath"].ToString() + "\">");
+                        sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\">");
                         sb.AppendLine("</span>");
                         sb.AppendLine("</div>");
                         

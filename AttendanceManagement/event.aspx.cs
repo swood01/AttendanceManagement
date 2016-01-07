@@ -26,7 +26,7 @@ namespace AttendanceManagement
 
                 String eventid = Request.QueryString["id"];
                                
-                    LoadQRCode(eventid);
+                    
 
                     Event ev1 = new Event();
                     ev1 = Event.LoadEvent(eventid);
@@ -40,14 +40,16 @@ namespace AttendanceManagement
 
                     lblSlot.Text = ev1.Slot;
 
+                    LoadQRCode(eventid, ev1.Room);
+
             }
 
         }                   
 
-        void LoadQRCode(String eventid)
+        void LoadQRCode(String eventid, String room)
         {
 
-            string url = "http://wsv-att1snd.uol.le.ac.uk/registration.aspx?event=" + eventid;
+            string url = "http://wsv-att1snd.uol.le.ac.uk/registration.aspx?event=" + eventid + "&room=" + room;
 
             QRCodeEncoder encoder = new QRCodeEncoder();
             Bitmap hi = encoder.Encode(url);
