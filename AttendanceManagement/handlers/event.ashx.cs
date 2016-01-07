@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 namespace AttendanceManagement.handlers
 {
     /// <summary>
-    /// Summary description for _event
+    /// EventHandler returns a list of all expected and actual attendees to an event
     /// </summary>
     public class EventHandler : IHttpHandler      
     {
@@ -119,16 +119,7 @@ namespace AttendanceManagement.handlers
 
                 }
 
-                sb.AppendLine("</span>");
-
-
-            //context.Request.InputStream.Position = 0;
-
-            //using (var inputStream = new StreamReader(context.Request.InputStream)) {
-            //        str = inputStream.ReadToEnd();
-            //}                       
-
-            //str += "hello baby!";
+                sb.AppendLine("</span>");                       
 
             context.Response.ContentType = "application/json";
             context.Response.Write(jsonSerializer.Serialize(sb.ToString()));

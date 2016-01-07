@@ -2,8 +2,8 @@
 $(document).ready(function () {
 
     //Get id parameter from URL so correct event can be loaded
-    var eventid = getUrlParameter('id');
-
+    var eventid = getUrlParameter('id');             
+      
     $.ajax({
         url: 'handlers/event.ashx',
         type: 'POST',
@@ -13,11 +13,15 @@ $(document).ready(function () {
 
             $('#ExpectedStudents').html(data);
             UpdateAttendanceCounts();
+
+            
+
         },
         error: function (errorText) {
 
         }
     });
+            
 });
 
 /*
@@ -25,6 +29,13 @@ Function to refresh the expected students div every 10 seconds
 */
 var auto_refresh = setInterval(
 function () {
+        
+    //alert($('.list-group-item').html());
+
+    //console.log($('.list-group-item').html());
+
+    var laststudent = $('.list-group-item').html();
+
     $('#ExpectedStudents').empty();
 
     //Get id parameter from URL so correct event can be loaded
@@ -39,16 +50,27 @@ function () {
 
             $('#ExpectedStudents').html(data);
             UpdateAttendanceCounts();
+            AnyNewStudents(laststudent);
 
         },
         error: function (errorText) {
 
         }
     });
-
-
+    
 
 }, 10000); // refresh every 10000 milliseconds
+
+function AnyNewStudents(laststudent)
+{
+    var firststudent = $('.list-group-item').html();
+
+    if (firststudent != laststudent)
+    {        
+        $('.list-group-item').first().css('background-color', '#dff0d8');
+    }
+
+}
 
 /*
 Function to update attendance counts within events page
