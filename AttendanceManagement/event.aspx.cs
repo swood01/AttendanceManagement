@@ -48,6 +48,8 @@ namespace AttendanceManagement
                     lblSlot.Text = ev1.Slot;
 
                     LoadQRCode(eventid, ev1.Room);
+                                
+                    chkShowImages.Checked = ev1.ShowImage;                                    
 
             }
 

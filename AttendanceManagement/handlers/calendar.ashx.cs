@@ -12,9 +12,7 @@ using AttendanceManagement.App_Code;
 
 namespace AttendanceManagement.Handlers
 {
-    /// <summary>
-    /// Summary description for EventHandler
-    /// </summary>
+    
     public class CalendarHandler : IHttpHandler
     {
         private List<CalendarEvent> _cal = new List<CalendarEvent>();

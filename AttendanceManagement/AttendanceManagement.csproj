@@ -81,6 +81,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="handlers\event.ashx" />
     <Content Include="handlers\calendar.ashx" />
+    <Content Include="handlers\showimage.ashx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="images\images1.jpg" />
     <Content Include="images\images2.jpg" />
@@ -147,6 +148,9 @@
     </Compile>
     <Compile Include="handlers\calendar.ashx.cs">
       <DependentUpon>calendar.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handlers\showimage.ashx.cs">
+      <DependentUpon>showimage.ashx</DependentUpon>
     </Compile>
     <Compile Include="menu\menu.ascx.cs">
       <DependentUpon>menu.ascx</DependentUpon>

@@ -20,6 +20,9 @@
 
     <script src='Scripts/event.js'></script>        
 
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet" />
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
 </head>
 <body>    <form id="form1" runat="server">
    
@@ -145,7 +148,10 @@
 
                         </div>
                         <div class="col-sm-4">
-                            <asp:Image ID="img" runat="server"/>
+                            <asp:Image ID="img" runat="server"/><br /><br />
+
+                            <strong>Show Images</strong> <input type="checkbox" id="chkShowImages" runat="server" checked data-toggle="toggle" data-onstyle="success" />
+
                         </div>
                 </div>
 

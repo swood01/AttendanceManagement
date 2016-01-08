@@ -19,6 +19,7 @@ namespace AttendanceManagement.App_Code
         public string Slot { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
+        public Boolean ShowImage { get; set; }
 
         public static List<Event> GetEvents()
         {
@@ -62,7 +63,8 @@ namespace AttendanceManagement.App_Code
                         event1.Location = reader["vcLocation"].ToString();
                         event1.Room = reader["vcRoom"].ToString();
                         event1.Start = (DateTime)reader["dtStart"];
-                        event1.End = (DateTime)reader["dtEnd"];                        
+                        event1.End = (DateTime)reader["dtEnd"];
+                        event1.ShowImage = (Boolean)reader["bShowImage"];
                     }
                     reader.Close();
                 }

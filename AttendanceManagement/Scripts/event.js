@@ -2,24 +2,64 @@
 $(document).ready(function () {
 
     //Get id parameter from URL so correct event can be loaded
-    var eventid = getUrlParameter('id');             
-      
+    var eventid = getUrlParameter('id');                     
+
+    var imageson = 'false';
+
+    if ($('#chkShowImages').is(':checked')) {
+        imageson = 'true';
+    }
+
+    alert(imageson);
+
     $.ajax({
         url: 'handlers/event.ashx',
         type: 'POST',
-        data: { 'Event': eventid },
+        data: { 'Event': eventid, 'ImageOn': imageson },
         dataType: 'json',
         success: function (data) {
 
             $('#ExpectedStudents').html(data);
-            UpdateAttendanceCounts();                       
+            UpdateAttendanceCounts();                                               
 
         },
         error: function (errorText) {
 
         }
-    });
-            
+    });        
+    
+    $('#chkShowImages').change(function () {
+        
+        var showImage;
+
+        if($(this).is(':checked'))
+        {
+            showImage = 'true';
+            //show all student images
+            $('span.list-group-item img').show();
+        }
+        else
+        {
+            showImage = 'false';
+            //hide all student images
+            $('span.list-group-item img').hide();
+        }
+
+        $.ajax({
+            url: 'handlers/showimage.ashx',
+            type: 'POST',
+            data: { 'Event': eventid, 'ShowImage': showImage },
+            dataType: 'json',
+            success: function (data) {                                
+
+            },
+            error: function (errorText) {
+
+            }
+        });
+
+    })
+
 });
 
 /*
@@ -30,15 +70,21 @@ function () {
 
     //console.log($('.list-group-item').html());
 
-    var laststudent = $('.list-group-item').html();
+    var laststudent = $('.list-group-item .row .col-md-3').html();//$('.list-group-item').html();
         
     //Get id parameter from URL so correct event can be loaded
     var eventid = getUrlParameter('id');
 
+    var imageson = 'false';
+
+    if ($('#chkShowImages').is(':checked')) {    
+        imageson = 'true';        
+    }
+    
     $.ajax({
         url: 'handlers/event.ashx',
         type: 'POST',
-        data: { 'Event': eventid },
+        data: { 'Event': eventid, 'ImageOn': imageson },
         dataType: 'json',
         success: function (data) {
                         
@@ -56,17 +102,17 @@ function () {
 function AnyNewStudents(laststudent, data)
 {   
     
-    var elements = $(data);
-    var firststudent = $('.list-group-item', elements);
-    
-    //console.log(firststudent.html());
+    var elements = $(data);    
+    var newlaststudent = $('.list-group-item .row .col-md-3', elements);        
+
+    //console.log(newlaststudent.html());
     //console.log(laststudent);
 
-    if (firststudent.html() != laststudent)
+    if (newlaststudent.html() != laststudent)
     {            
         $('#ExpectedStudents').empty();
-        $('#ExpectedStudents').html(data);
-       
+        $('#ExpectedStudents').html(data);               
+
         //set background colour of first new student to light-green
         $('.list-group-item').first().css('background-color', '#dff0d8');                 
         

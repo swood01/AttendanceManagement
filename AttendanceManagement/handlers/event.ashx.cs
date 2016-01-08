@@ -21,9 +21,10 @@ namespace AttendanceManagement.handlers
         {                        
 
             JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
-            String strEvent;
+            String strEvent, strImagesOn;
 
             strEvent = context.Request["Event"];
+            strImagesOn = context.Request["ImageOn"];
 
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["AttendanceManagement"].ConnectionString);
 
@@ -57,10 +58,19 @@ namespace AttendanceManagement.handlers
                         sb.AppendLine("<div class=\"row\">");
 
                         sb.AppendLine("<div class=\"col-md-2\">");
-                        sb.AppendLine("<span id=\"btnimg\">");
+                        //sb.AppendLine("<span>");
                         //<img class="featurette-image img-responsive center-block event-image" alt="<%# DataBinder.Eval(Container.DataItem, "vcFirstname")%> <%# DataBinder.Eval(Container.DataItem, "vcSurname")%> Image" src="<%# DataBinder.Eval(Container.DataItem, "ImagePath")%>">
-                        sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\">");
-                        sb.AppendLine("</span>");
+
+                        if (strImagesOn == "true")
+                        {
+                            sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: block;\">");
+                        }
+                        else
+                        {
+                            sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: none;\">");
+                        }
+                                                
+                        //sb.AppendLine("</span>");
                         sb.AppendLine("</div>");
                         
                         sb.AppendLine("<div class=\"col-md-3\">");
