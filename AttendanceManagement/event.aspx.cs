@@ -23,9 +23,7 @@ namespace AttendanceManagement
         /// The expected/actual students list fires on doc.ready through event.js file
         /// might be that the 10 second div refresh isnt needed and we include a refresh button at the top of the list
         /// after an event closes (maybe midnight of that day) the event should be made historical and moved into a seperate table 
-        /// so that it can be reported on more accurately (against a hard event id) as opposed to datetime and room
-        /// ### Even better ###
-        /// Only do a refresh when there is new content!
+        /// so that it can be reported on more accurately (against a hard event id) as opposed to datetime and room        
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
