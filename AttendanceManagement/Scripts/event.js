@@ -12,9 +12,7 @@ $(document).ready(function () {
         success: function (data) {
 
             $('#ExpectedStudents').html(data);
-            UpdateAttendanceCounts();
-
-            
+            UpdateAttendanceCounts();                       
 
         },
         error: function (errorText) {
@@ -28,16 +26,12 @@ $(document).ready(function () {
 Function to refresh the expected students div every 10 seconds
 */
 var auto_refresh = setInterval(
-function () {
-        
-    //alert($('.list-group-item').html());
+function () {     
 
     //console.log($('.list-group-item').html());
 
     var laststudent = $('.list-group-item').html();
-
-    $('#ExpectedStudents').empty();
-
+        
     //Get id parameter from URL so correct event can be loaded
     var eventid = getUrlParameter('id');
 
@@ -47,10 +41,8 @@ function () {
         data: { 'Event': eventid },
         dataType: 'json',
         success: function (data) {
-
-            $('#ExpectedStudents').html(data);
-            UpdateAttendanceCounts();
-            AnyNewStudents(laststudent);
+                        
+            AnyNewStudents(laststudent, data);
 
         },
         error: function (errorText) {
@@ -61,13 +53,29 @@ function () {
 
 }, 10000); // refresh every 10000 milliseconds
 
-function AnyNewStudents(laststudent)
-{
-    var firststudent = $('.list-group-item').html();
+function AnyNewStudents(laststudent, data)
+{   
+    
+    var elements = $(data);
+    var firststudent = $('.list-group-item', elements);
+    
+    //console.log(firststudent.html());
+    //console.log(laststudent);
 
-    if (firststudent != laststudent)
-    {        
-        $('.list-group-item').first().css('background-color', '#dff0d8');
+    if (firststudent.html() != laststudent)
+    {            
+        $('#ExpectedStudents').empty();
+        $('#ExpectedStudents').html(data);
+       
+        //set background colour of first new student to light-green
+        $('.list-group-item').first().css('background-color', '#dff0d8');                 
+        
+        //reset background colour to white after 5 seconds
+        setTimeout(function () {
+            $('.list-group-item').first().css("background-color", "#FFFFFF");
+        }, 5000);
+
+        UpdateAttendanceCounts();
     }
 
 }
