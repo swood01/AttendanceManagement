@@ -8,10 +8,8 @@ $(document).ready(function () {
 
     if ($('#chkShowImages').is(':checked')) {
         imageson = 'true';
-    }
-
-    alert(imageson);
-
+    }        
+    
     $.ajax({
         url: 'handlers/event.ashx',
         type: 'POST',
