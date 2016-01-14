@@ -14,6 +14,7 @@ namespace AttendanceManagement.App_Code
         public int id { get; set; }
         public string Title { get; set; }
         public string Room { get; set; }
+        public string RoomName { get; set; }
         public string Location { get; set; }
         public string Type { get; set; }
         public string Slot { get; set; }
@@ -65,6 +66,7 @@ namespace AttendanceManagement.App_Code
                         event1.Start = (DateTime)reader["dtStart"];
                         event1.End = (DateTime)reader["dtEnd"];
                         event1.ShowImage = (Boolean)reader["bShowImage"];
+                        event1.RoomName = reader["vcRoomName"].ToString();
                     }
                     reader.Close();
                 }

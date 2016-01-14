@@ -58,9 +58,7 @@ namespace AttendanceManagement.handlers
                         sb.AppendLine("<div class=\"row\">");
 
                         sb.AppendLine("<div class=\"col-md-2\">");
-                        //sb.AppendLine("<span>");
-                        //<img class="featurette-image img-responsive center-block event-image" alt="<%# DataBinder.Eval(Container.DataItem, "vcFirstname")%> <%# DataBinder.Eval(Container.DataItem, "vcSurname")%> Image" src="<%# DataBinder.Eval(Container.DataItem, "ImagePath")%>">
-
+                        
                         if (strImagesOn == "true")
                         {
                             sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: block;\">");
@@ -68,15 +66,13 @@ namespace AttendanceManagement.handlers
                         else
                         {
                             sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: none;\">");
-                        }
-                                                
-                        //sb.AppendLine("</span>");
+                        }                                             
+                        
                         sb.AppendLine("</div>");
                         
                         sb.AppendLine("<div class=\"col-md-3\">");
-
-                        sb.AppendLine(row["vcFirstname"].ToString());
-                        sb.AppendLine(row["vcSurname"].ToString());
+                        sb.AppendLine(row["vcSurname"].ToString() + ",");
+                        sb.AppendLine(row["vcFirstname"].ToString());                        
                         sb.AppendLine("(" + row["vcITAccountName"].ToString() + ")");
 
                         sb.AppendLine("</div>");
@@ -100,7 +96,7 @@ namespace AttendanceManagement.handlers
                                 break;
                             case "present":
 
-                                sb.AppendLine("<input type=\"submit\" value=\"Present\" class=\"btn btn-primary present\">");
+                                sb.AppendLine("<input type=\"submit\" value=\"Present\" class=\"btn btn-success present\">");
                                 sb.AppendLine("<input type=\"submit\" value=\"Absent\" class=\"btn btn-default\">");
                                 sb.AppendLine("<input type=\"submit\" value=\"Authorised Absence\" class=\"btn btn-default\">");
 
@@ -112,7 +108,12 @@ namespace AttendanceManagement.handlers
                                 sb.AppendLine("<input type=\"submit\" value=\"Authorised Absence\" class=\"btn btn-warning authorised\">");
 
                                 break;
+                            case "unexpected":
 
+                                sb.AppendLine("<input type=\"submit\" value=\"Approved\" class=\"btn btn-warning approve\">");
+                                sb.AppendLine("<input type=\"submit\" value=\"Decline\" class=\"btn btn-default\">");                                                              
+
+                                break;
                         }                       
 
                         sb.AppendLine("</div>");

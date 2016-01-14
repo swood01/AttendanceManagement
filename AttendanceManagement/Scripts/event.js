@@ -103,8 +103,8 @@ function AnyNewStudents(laststudent, data)
     var elements = $(data);    
     var newlaststudent = $('.list-group-item .row .col-md-3', elements);        
 
-    //console.log(newlaststudent.html());
-    //console.log(laststudent);
+    console.log(newlaststudent.html());
+    console.log(laststudent);
 
     if (newlaststudent.html() != laststudent)
     {            
@@ -132,24 +132,39 @@ function UpdateAttendanceCounts() {
     var expected = 0;
     var present = 0;
     var authorised = 0;
-    var reported = 0
+    var reported = 0;
+    var unexpected = 0;
+    var presentunexpected = 0;
 
     expected = document.getElementsByClassName("list-group-item").length;
-    present = document.getElementsByClassName("btn btn-primary present").length;
+    present = document.getElementsByClassName("btn btn-success present").length;
     authorised = document.getElementsByClassName("btn btn-primary authorised").length;
+    unexpected = document.getElementsByClassName("btn btn-warning approve").length;
 
-    reported = authorised + present;
+    reported = authorised + present + unexpected;   
+    expected = expected - unexpected;
 
     var perReported = (reported / expected) * 100;
     var perPresent = (present / expected) * 100;
+    var perUnexpected = (unexpected / expected) * 100;
 
-    $('#lblReported').text(reported);
+    $('#lblUnexpected').text(unexpected);
     $('#lblExpected').text(expected);
     $('#lblPresent').text(present);
 
     $('#pbExpected').attr("style", "width:100%");
-    $('#pbReported').attr("style", "width:" + perReported + "%;");
+    //$('#pbReported').attr("style", "width:" + perReported + "%;");
     $('#pbPresent').attr("style", "width:" + perPresent + "%;");
+
+    if(unexpected > 0)
+    {
+        $('#pbUnexpected').attr("style", "width:" + perUnexpected + "%;");
+        $('#unexpected').show();
+    }
+    else
+    {
+        $('#unexpected').hide();
+    }
 
 }
 

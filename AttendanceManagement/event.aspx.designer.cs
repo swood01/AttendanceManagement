@@ -103,24 +103,6 @@ namespace AttendanceManagement {
         protected global::System.Web.UI.WebControls.Label lblExpected;
         
         /// <summary>
-        /// pbReported control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pbReported;
-        
-        /// <summary>
-        /// lblReported control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReported;
-        
-        /// <summary>
         /// pbPresent control.
         /// </summary>
         /// <remarks>
@@ -137,6 +119,24 @@ namespace AttendanceManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPresent;
+        
+        /// <summary>
+        /// pbUnexpected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pbUnexpected;
+        
+        /// <summary>
+        /// lblUnexpected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnexpected;
         
         /// <summary>
         /// img control.

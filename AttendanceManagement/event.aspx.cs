@@ -42,7 +42,7 @@ namespace AttendanceManagement
                     lblDate.Text = string.Format("{0:dd/MM/yyyy}", ev1.Start);
                     lblTime.Text = string.Format("{0:HH:mm}", ev1.Start) + "-" + string.Format("{0:HH:mm}", ev1.End);
                     
-                    btnRoom.Text = ev1.Room;
+                    btnRoom.Text = ev1.RoomName;
                     btnLocation.Text = ev1.Location;
 
                     lblSlot.Text = ev1.Slot;
