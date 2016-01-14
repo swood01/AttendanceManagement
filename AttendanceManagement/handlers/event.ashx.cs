@@ -59,15 +59,24 @@ namespace AttendanceManagement.handlers
 
                         sb.AppendLine("<div class=\"col-md-2\">");
                         
-                        if (strImagesOn == "true")
+                        /*if (strImagesOn == "true")
                         {
                             sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: block;\">");
                         }
                         else
                         {
                             sb.AppendLine("<img class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: none;\">");
-                        }                                             
-                        
+                        }*/
+
+                        if (strImagesOn == "true")
+                        {
+                            sb.AppendLine("<button type=\"button\" class=\"btn-custom\" data-toggle=\"modal\" data-target=\"#myModal\" data-id=\"" + row["vcITAccountName"].ToString() + "\"><img id=\"userImage\" type=\"image\" class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: block;\"></button>");
+                        }
+                        else 
+                        { 
+                            sb.AppendLine("<button type=\"button\" class=\"btn-custom\" data-toggle=\"modal\" data-target=\"#myModal\" data-id=\"" + row["vcITAccountName"].ToString() + "\"><img id=\"userImage\" type=\"image\" class=\"featurette-image img-responsive center-block event-image\" alt=\"" + row["vcFirstname"].ToString() + " " + row["vcSurname"].ToString() + " Image\" src=\"" + row["ImagePath"].ToString() + "\" style=\"display: none;\"></button>"); }
+
+
                         sb.AppendLine("</div>");
                         
                         sb.AppendLine("<div class=\"col-md-3\">");

@@ -82,6 +82,7 @@
     <Content Include="handlers\event.ashx" />
     <Content Include="handlers\calendar.ashx" />
     <Content Include="handlers\showimage.ashx" />
+    <Content Include="handlers\StudentDetails.ashx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="images\images1.jpg" />
     <Content Include="images\images2.jpg" />
@@ -122,6 +123,7 @@
   <ItemGroup>
     <Compile Include="App_Code\CalendarEvent.cs" />
     <Compile Include="App_Code\Event.cs" />
+    <Compile Include="App_Code\StudentData.cs" />
     <Compile Include="cmisimport.aspx.cs">
       <DependentUpon>cmisimport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +153,9 @@
     </Compile>
     <Compile Include="handlers\showimage.ashx.cs">
       <DependentUpon>showimage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handlers\StudentDetails.ashx.cs">
+      <DependentUpon>StudentDetails.ashx</DependentUpon>
     </Compile>
     <Compile Include="menu\menu.ascx.cs">
       <DependentUpon>menu.ascx</DependentUpon>

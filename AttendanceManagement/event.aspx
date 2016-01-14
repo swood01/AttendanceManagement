@@ -165,6 +165,37 @@
         <div id="ExpectedStudents" runat="server">            
         </div>             
 
+        <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Student Details</h4>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="studentImage" src="" alt="" />
+                            <br />
+                            <br />
+                            <strong>Name: </strong>
+                            <p id="fullName"></p>
+                            <strong>Account Name: </strong>
+                            <p id="accName"></p>
+                            <strong>Email: </strong>
+                            <p id="email"></p>
+                            <strong>Student Code: </strong>
+                            <p id="studentNo"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
     </div>
     </form>
 </body>

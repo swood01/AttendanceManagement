@@ -148,3 +148,11 @@ body {
 .logo-4x1 { 
   background-image: url('logo4x1.svg'); 
 }
+
+.btn-custom  {
+    border:0px solid transparent;
+}
+.event-image {
+    width: 125px;
+    height: 155px;
+}

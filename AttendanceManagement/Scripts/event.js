@@ -185,3 +185,32 @@ function getUrlParameter(sParam) {
         }
     }
 };
+
+/*
+Function to populate student details modal using handler / json
+*/
+$(document).on("click", ".btn-custom", function () {
+    var accountName = $(this).data('id');
+    // grab your data here based on account name
+    $.ajax({
+        url: 'handlers/studentdetails.ashx',
+        type: 'POST',
+        data: { 'AccountName': accountName },
+        dataType: 'json',
+        success: function (response) {
+            // post data to the modal
+            //$(".modal-body #accountId").val(accountName);
+            $(".modal-body #accName").text(accountName);
+            $(".modal-body #fullName").text(response.firstName + " " + response.lastName);
+            $(".modal-body #email").text(response.email);
+            $(".modal-body #studentNo").text(response.studentNo);
+            $('.modal-body #studentImage').attr("src", response.imagePath);
+            $('.modal-body #studentImage').attr("alt", response.firstName + response.lastName + " image");
+        },
+        error: function (errorText) {
+
+        }
+    });
+
+
+});
