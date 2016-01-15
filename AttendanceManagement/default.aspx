@@ -76,16 +76,20 @@
                     </div>
                 </span>
 
-
             </ItemTemplate>             
         </asp:ListView>         
         <div id="newRegistrations" runat="server">
             <asp:Label ID="lblNewRegistrations" runat="server"></asp:Label>
         </div>
 
-        <asp:Panel ID="panelCalendar" runat="server" Visible="false">
+        <asp:Panel ID="panelCalendar" BackColor="White" runat="server" Visible="false">
             <div id='calendar'></div>
         </asp:Panel>
+
+        <hr />
+      <footer>
+        <p>&copy; University of Leicester 2016 | IT Services</p>
+      </footer>
 
     </div>
      

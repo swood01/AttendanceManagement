@@ -237,6 +237,11 @@
 
                 </div>
             </div>
+        <hr />
+
+      <footer>
+        <p>&copy; University of Leicester 2016 | IT Services</p>
+      </footer>
 
     </div>
     </form>
