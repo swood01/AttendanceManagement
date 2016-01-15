@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-toggle.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
@@ -90,6 +91,8 @@
     <Content Include="images\images4.jpg" />
     <Content Include="images\ji.jpg" />
     <Content Include="images\uollogo.png" />
+    <Content Include="Scripts\bootstrap-toggle\bootstrap-toggle.min.js" />
+    <Content Include="Scripts\charts\loader.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="menu\menu.ascx" />
     <Content Include="registration.aspx" />

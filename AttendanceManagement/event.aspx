@@ -17,15 +17,42 @@
     <!-- Bootstrap theme Library-->
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>      
    
-    <!-- stylesheets -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/custom.css" />
+    <link rel="stylesheet" href="Content/bootstrap-toggle.min.css"  />
 
-    <script src='Scripts/event.js'></script>        
+    <!-- JavaScript -->
+    <script type="text/javascript" src='Scripts/event.js'></script>      
+    <script type="text/javascript" src="Scripts/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="Scripts/charts/loader.js"></script>
+    
+    <!-- Google Visualization -->
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
 
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet" />
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+        var data = google.visualization.arrayToDataTable([
+          ['Attendance', 'Events Attended'],
+          ['Present',     11],
+          ['Absent',      2],
+          ['Authorised Absence',  1],
+          ['Unexpected', 3]
+        ]);
 
+        var options = {
+            title: 'Module Attendance',
+            is3D: true,
+            width: 500,
+            height: 300
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <body>    <form id="form1" runat="server">
    
@@ -175,18 +202,33 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Student Details</h4>
                         </div>
-                        <div class="modal-body text-center">
-                            <img id="studentImage" src="" alt="" />
-                            <br />
-                            <br />
-                            <strong>Name: </strong>
-                            <p id="fullName"></p>
-                            <strong>Account Name: </strong>
-                            <p id="accName"></p>
-                            <strong>Email: </strong>
-                            <p id="email"></p>
-                            <strong>Student Code: </strong>
-                            <p id="studentNo"></p>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img id="studentImage" src="" alt="" />
+                                </div>
+                                <div class="col-sm-4 col-md-offset-1">
+                                    <strong>Name </strong>
+                                    <p id="fullName"></p>
+                                    <strong>IT Account Name </strong>
+                                    <p id="accName"></p>
+                                    <strong>Email </strong>
+                                    <p id="email"></p>
+                                    <strong>Student Code </strong>
+                                    <p id="studentNo"></p>                                                                       
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">                                                                        
+                                    <div id="piechart"></div> 
+                                </div>
+                            </div>                                                 
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
